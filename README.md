@@ -4,10 +4,6 @@
 
 The AI Legal Assistant backend is developed using Spring Boot to provide a robust and scalable solution for delivering accurate legal advice through an API. This backend seamlessly integrates with the Next.js frontend, handling user queries and leveraging a trained language model to generate responses.
 
-## Front end
-
-[Link](https://github.com/ayushkoli772/ai-lawyer-frontend)
-
 ## Demo
 
 You can interact with the API via the frontend [Live Link](https://ai-lawyer-sigma.vercel.app).
