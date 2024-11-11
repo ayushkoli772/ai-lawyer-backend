@@ -1,6 +1,8 @@
 package com.example.ailawyerbackend.Controllers;
 
+import com.example.ailawyerbackend.Models.Conversation;
 import com.example.ailawyerbackend.Services.AdviceService;
+import com.example.ailawyerbackend.Services.ConversationService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +14,20 @@ public class ChatController {
     @Autowired
     AdviceService adviceService;
 
+    @Autowired
+    ConversationService conversationService;
+
     @PostMapping("/chat")
     public String getChat(@RequestBody String input) throws JsonProcessingException {
 
 //        System.out.println(input);
-
         String output = adviceService.getAdvice(input);
+
+        Conversation conversation = new Conversation();
+        conversation.setQuestion(input);
+        conversation.setResponse(output);
+
+        conversationService.saveConversation(conversation);
         return output;
     }
 
